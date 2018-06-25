@@ -1,0 +1,321 @@
+body{
+    overflow-x: hidden;  
+}
+a,button,input{
+    -webkit-tap-highlight-color:#fff;  
+    tap-highlight-color:#fff; 
+}
+button,
+input{
+	background: none;
+    margin: 0;   
+    outline: none;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+button {
+    border: 0;
+    padding: 0;
+    vertical-align: baseline;
+    -webkit-appearance: none;
+    appearance: none;
+}
+/*input placeholder*/
+.new-todo input::-webkit-input-placeholder {
+    font-style: italic;
+    font-weight: 300;
+    color: #CFCFCF;
+}
+.new-todo input::input-placeholder {
+    font-style: italic;
+    font-weight: 300;
+    color: #CFCFCF;
+}
+
+.todoapp h1 {
+    font-size: 1.8em;
+    font-weight: 300;
+    text-align: center;
+    color: #EE9572;
+    text-shadow: 1px 1px 1px #FA8072;
+    font-family: Verdana,Arial;
+    opacity: 0.8;
+    -webkit-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+}
+
+.new-todo {
+    display: flex;
+    align-items:center;   
+    margin-bottom: 30px;
+    padding: 5px;
+}
+
+.new-todo input,
+.edit {
+    width: 100%;
+    font-size: 24px;
+    padding: 5px;   
+    border: none;
+    box-shadow: none;
+}
+
+.plus{
+     width: 25px;
+     height: 25px;    
+}
+.new-todo,.todo-list{
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #e0e0e0;
+}
+.todo-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.todo-list li {
+    position: relative;
+    font-size: 24px;
+    border-bottom: 1px solid #ededed;
+}
+
+.todo-list li:last-child {
+    border-bottom: none;
+}
+/*编辑时编辑框样式*/
+.todo-list li.editing .edit {
+    display: block; 
+    width: 86%;
+    margin-left:43px;
+    padding: 9px;
+}
+.todo-list li.editing{
+    height: 2.2em;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    
+}
+
+/*不编辑时隐藏*/
+.todo-list li .edit {
+    display: none;
+}
+/*编辑时隐藏 todo*/
+.todo-list li.editing .view {
+    display: none;
+}
+.todo-list li.editing:last-child {
+    margin-bottom: -1px;
+}
+/*完成？*/
+.todo-list li .toggle,.todo-list li .choose i{
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border: none; /* Mobile Safari */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.todo-list li .toggle.red:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#DC143C" stroke-width="5"/></svg>');
+}
+.todo-list li .toggle.orange:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#FF8C00" stroke-width="5"/></svg>');
+}
+.todo-list li .toggle.yellow:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#FFEC8B" stroke-width="5"/></svg>');
+}
+.todo-list li .toggle.grey:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135" style="opacity:0.4;"><circle cx="50" cy="50" r="50" fill="none" stroke="#D3D3D3" stroke-width="5"/></svg>');
+}
+.todo-list li .toggle:checked:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135" style="opacity:0.5;"><circle cx="50" cy="50" r="50" fill="none" stroke="#D3D3D3" stroke-width="5"/><circle cx="50" cy="50" r="30" fill="#D3D3D3" stroke="#D3D3D3" stroke-width="5"/></svg>');
+}
+
+/*选择等级*/
+.todo-list li .choose{
+    display: none;
+}
+.todo-list li.moving .choose{
+    display: block;
+}
+.todo-list li .choose i {
+    left:-42px;
+    top: 8px;
+}
+.todo-list li .choose i.orange{
+    left:-73px;
+}
+.todo-list li .choose i.yellow{
+    left:-101px;
+}
+.todo-list li .choose i.grey{
+    left:-129px;
+}
+.todo-list li .choose i.red:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="40" cy="40" r="40" fill="#EE5C42" stroke="#EE5C42" stroke-width="3"/></svg>');
+}
+.todo-list li .choose i.orange:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="40" cy="40" r="40" fill="#FF8C00" stroke="#FF8C00" stroke-width="3"/></svg>');
+}
+.todo-list li .choose i.yellow:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="40" cy="40" r="40" fill="#FFEC8B" stroke="#FFEC8B" stroke-width="3"/></svg>');
+}
+.todo-list li .choose i.grey:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="40" cy="40" r="40" fill="#D3D3D3" stroke="#D3D3D3" stroke-width="3"/></svg>');
+}
+.congratulation{
+    width: 100%;
+    color: #d9d9d9;
+    font-weight: 300;
+    font-size: 1.4em;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.todo-list li label {
+    white-space: pre-line;
+    word-break: break-all;
+    padding: 10px;
+    margin-left: 45px;
+    display: block;
+    transition: color 0.4s;
+}
+
+.todo-list li.completed label {
+    color: #d9d9d9;
+    text-decoration: line-through;
+}
+/*destory*/
+.todo-list li .destroy {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: -40px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    margin-bottom: 11px;
+    font-size: 30px;
+    color: #cc9a9a;
+    transition: color 0.2s ease-out;
+}
+.todo-list li .destroy:after {
+    content: '×';
+}
+.todo-list li.moving .destroy {
+    display: block;
+}
+.help{
+    position: fixed;
+    bottom: 5px;
+    right: 2px;
+    width: 30px;
+    height: 30px;
+    background: #404040;
+    color: #eee;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #e0e0e0;
+    text-align: center;
+    vertical-align: center;
+    font-family: Herculanum,papyrus;
+    font-size: 1.6em;
+}
+.info{
+    display: none;
+    position: fixed;
+    bottom: 5px;
+    right: 2%;
+    width: 80%;
+    font-size:1em;
+    color: #777;
+    background: #eee;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #e0e0e0;
+    padding-bottom:20px;
+}
+.info.display{
+    display: block;
+}
+.info .type{
+    position: relative;
+    top:18px;
+}
+.info div{
+    margin-top:-8px;
+}
+.info .type.orange:before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="40" cy="30" r="30" fill="#FF8C00" stroke="#FF8C00" stroke-width="3"/></svg>');
+}
+.info .type.yellow:before{
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="40" cy="30" r="30" fill="#FFEC8B" stroke="#FFEC8B" stroke-width="3"/></svg>');
+}
+.info .type.grey:before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="40" cy="30" r="30" fill="#D3D3D3" stroke="#D3D3D3" stroke-width="3"/></svg>');
+}
+.info .type.red:before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="40" cy="30" r="30" fill="#EE5C42" stroke="#EE5C42" stroke-width="3"/></svg>');
+}
+
+
+/*filters*/
+.filters {
+    padding: 0;
+    list-style: none;
+}
+.filters li {
+    display: inline;
+}
+.filters li a {
+    color: inherit;
+    margin: 3px;
+    padding: 3px 7px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+.filters li a.selected {
+    /*border-color: rgba(200,80,72,0.5);*/
+    background: rgba(238,149,114,0.3);
+    border-radius: 10px;
+    
+    box-shadow: 0 0 5px #e0e0e0;
+}
+
+/*operation toggle-all,todo-count,clear-completed*/
+.operation {
+    color: #777;
+    width: 96%;
+    font-size: 1.1em;
+    margin-left:auto;
+    margin-right: auto;
+    padding-top:10px;
+    display: flex;
+    justify-content: space-between;
+}
+.clear-completed{
+    display: none;
+}
+/*左右滑动*/
+.swipeleft{
+    transform:translateX(-15%);
+    -webkit-transform:translateX(-15%);
+}
+.swiperight{
+    transform:translateX(40%);
+    -webkit-transform:translateX(40%);
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDoList</title>
+  <meta content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width" name="viewport"/>
+  <link rel="stylesheet" href="todolist.css">
+</head>
+<body>
+  <div class="todoapp">
+    <!--header-->
+    <h1>todos</h1>
+    <!--content-->
+    <section> 
+      <!--add new todo-->
+      <div class="new-todo">
+         <img class="plus" src="image/plus.png">
+        <input class="newmsg" type="text" placeholder="Add things need to be done!" autofocus>
+     </div>
+     <!--filters-->
+      <ul class="filters">
+          <li><a class="selected">Active</a></li>
+          <li><a class="">Completed</a></li>
+          <li><a class="">All</a></li>
+      </ul>
+      <!-- show list -->
+      <ul class="todo-list">
+        
+      </ul>
+      <!--operation-->
+      <footer class="operation">
+        <button class="toggle-all">Toggle all</button> 
+        <span class="todo-count"></span>
+        <button class="clear-completed">Clear completed</button>
+      </footer>
+       <!--new thing, info-->   
+      <div class="info">
+         <div><i class="type red" id="red"></i>urgent and important</div>
+         <div><i class="type orange" id="orange"></i>urgent but not important</div>
+         <div><i class="type yellow" id="yellow"></i>important but not urgent</div>
+         <div><i class="type grey" id="grey"></i>not urgent and not important</div>
+      </div>   
+      <div class="help">H</div>   
+    </section>
+  </div>
+  <script src="model.js"></script>
+  <script src="provider-localStorage.js"></script>
+  <script src="todolist.js"></script>
+</body>
+</html>
